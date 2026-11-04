@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Crop planner — Soil Script{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-soft page-hero-planner">
+  <div class="page-hero-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> Season planning</div><h1>Start with your soil.<br><em>Plan with context.</em></h1><p>Explore a shortlist of crops to discuss locally, based on the season, soil, and water you have.</p></div>
+  <div class="season-illustration" aria-hidden="true"><div class="season-sun"></div><div class="season-cloud">✦</div><div class="season-hills hills-back"></div><div class="season-hills hills-front"></div><div class="season-stalk"><i></i><i></i><i></i><b></b></div><div class="season-stalk stalk-two"><i></i><i></i><b></b></div></div>
+</section>
+<section class="section planner-section">
+  <div class="section-heading compact-heading"><div><div class="eyebrow">A useful starting point</div><h2>Tell us about<br><em>your field.</em></h2></div><p>These broad matches are for exploration only. Local rainfall, varieties, soil testing, and market access can change what is right for your land.</p></div>
+  <div class="planner-layout">
+    <form class="panel planner-form" id="crop-form">
+      <div class="form-section-title"><span>1</span><div><strong>Where are you in the season?</strong><small>Choose the season you are planning for.</small></div></div>
+      <div class="choice-grid choice-grid-three"><label class="choice-card"><input type="radio" name="season" value="kharif" checked><span class="choice-icon">☼</span><strong>Kharif</strong><small>Monsoon</small></label><label class="choice-card"><input type="radio" name="season" value="rabi"><span class="choice-icon">❄</span><strong>Rabi</strong><small>Winter</small></label><label class="choice-card"><input type="radio" name="season" value="zaid"><span class="choice-icon">◒</span><strong>Zaid</strong><small>Summer</small></label></div>
+      <div class="form-section-title"><span>2</span><div><strong>What is your soil like?</strong><small>A soil test from a local lab is the best guide.</small></div></div>
+      <label class="field-group"><span class="field-label">Best match for your field</span><select name="soil" id="soil-type"><option value="clay">Clay or black soil</option><option value="loam">Loam or mixed soil</option><option value="sandy">Sandy or light soil</option><option value="unknown">I’m not sure yet</option></select></label>
+      <div class="field-row planner-field-row"><label class="field-group"><span class="field-label">Water availability</span><select name="water" id="water"><option value="rainfed">Mainly rainfall</option><option value="limited">Some irrigation</option><option value="assured">Reliable irrigation</option></select></label><label class="field-group"><span class="field-label">Planning priority</span><select name="priority" id="priority"><option value="food">Household food</option><option value="market">Local market</option><option value="soil">Soil cover and rotation</option></select></label></div>
+      <button class="button button-primary button-wide" type="submit">Build my shortlist <span>↗</span></button>
+    </form>
+    <section class="planner-results" aria-live="polite" aria-labelledby="crop-results-title">
+      <div class="results-heading"><span class="step-label"><b>03</b> YOUR STARTING SHORTLIST</span><h3 id="crop-results-title">A few crops to<br><em>explore locally.</em></h3><p id="crop-results-intro">Pick your field details to see broad options worth discussing with your local agriculture office.</p></div>
+      <div id="crop-results" class="crop-results-list"><article class="crop-result-card placeholder-crop"><span class="crop-number">01</span><div><h4>Your field is the starting point</h4><p>Share a few details to build a broad shortlist for local discussion.</p></div><span>✳</span></article></div>
+      <div class="planner-disclaimer"><span>i</span><p>This planner does not use live weather, soil test results, seed availability, or mandi prices. Confirm the right crop and variety with your local agriculture office or KVK.</p></div>
+    </section>
+  </div>
+</section>
+<section class="bottom-link-band"><span>Not sure what type of soil you have?</span><a href="{{ url_for('guide') }}#soil-check">Start with a simple soil check <b>→</b></a></section>
+{% endblock %}

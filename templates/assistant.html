@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Voice assistant — Soil Script{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-soft">
+  <div class="page-hero-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> Your regional voice assistant</div><h1>Ask the question.<br><em>Hear it clearly.</em></h1><p>Type or record a short question. Get a calm, practical response in a language you understand.</p></div>
+  <div class="assistant-hero-visual"><div class="assistant-orbit"></div><div class="assistant-bubble bubble-one">ನಮಸ್ಕಾರ</div><div class="assistant-bubble bubble-two">नमस्ते</div><div class="assistant-mic"><span>◖</span></div><div class="assistant-spark">✳</div></div>
+</section>
+<section class="section assistant-section">
+  <div class="assistant-layout">
+    <div class="assistant-context">
+      <span class="step-label"><b>01</b> YOUR CONVERSATION</span><h2>Let’s talk<br><em>about your farm.</em></h2><p>Ask about a farming term, how to read a notice, or what a label is saying. Share the details you have, and we’ll keep the answer simple.</p>
+      <div class="language-picker"><label class="field-label" for="assistant-language">Choose your language</label><select id="assistant-language"><option value="kn-IN" selected>ಕನ್ನಡ · Kannada</option><option value="hi-IN">हिन्दी · Hindi</option><option value="ta-IN">தமிழ் · Tamil</option><option value="te-IN">తెలుగు · Telugu</option><option value="ml-IN">മലയാളം · Malayalam</option><option value="mr-IN">मराठी · Marathi</option><option value="bn-IN">বাংলা · Bengali</option><option value="gu-IN">ગુજરાતી · Gujarati</option><option value="pa-IN">ਪੰਜਾਬੀ · Punjabi</option><option value="od-IN">ଓଡ଼ିଆ · Odia</option><option value="en-IN">English</option></select></div>
+      <div class="assistant-prompt-title">Somewhere to begin</div><div class="prompt-chips"><button type="button" data-prompt="What should I check before using a new fertilizer?">Using a new fertilizer</button><button type="button" data-prompt="How can I understand the key parts of a pesticide label?">Reading a pesticide label</button><button type="button" data-prompt="What information should I gather before speaking with my agriculture officer?">Preparing for a farm visit</button></div>
+      <div class="assistant-safety"><span>i</span><p>For exact doses, symptoms, money, or scheme decisions, check the label or speak with a qualified local expert.</p></div>
+    </div>
+    <section class="chat-panel" aria-label="Farm assistant conversation">
+      <div class="chat-topbar"><div class="online-mark"><i></i><span><strong>Soil Script assistant</strong><small>Here to help you think it through</small></span></div><button class="icon-button" id="clear-chat" type="button" aria-label="Clear conversation" title="Clear conversation">↻</button></div>
+      <div class="chat-messages" id="chat-messages" aria-live="polite">
+        <div class="chat-day-label"><span>YOUR FARM, YOUR QUESTIONS</span></div>
+        <div class="message-row assistant-message"><div class="message-avatar">✳</div><div class="message-bubble"><p>Hello! I’m here to help make farm information easier to understand. What’s on your mind today?</p><small>Soil Script · just now</small></div></div>
+      </div>
+      <div class="recording-status hidden" id="recording-status"><span class="recording-dot"></span><span id="recording-label">Listening… tap again to finish</span></div>
+      <form class="chat-compose" id="chat-form"><button class="voice-button" id="record-voice" type="button" aria-label="Record a question" title="Record a question"><span>◖</span></button><label class="sr-only" for="chat-input">Your question</label><textarea id="chat-input" rows="1" maxlength="1600" placeholder="Type a question for your farm…"></textarea><button class="send-button" type="submit" aria-label="Send message">↑</button></form>
+      <div class="chat-footer"><span>AI can be wrong. Keep the label and local advice close.</span><span>Powered by Sarvam</span></div>
+    </section>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/assistant.js') }}" defer></script>{% endblock %}

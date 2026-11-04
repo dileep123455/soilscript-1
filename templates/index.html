@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Soil Script — clear information for every farm{% endblock %}
+{% block content %}
+<section class="hero hero-home">
+  <div class="hero-content">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> A little more clarity, every season</div>
+    <h1>Good decisions<br>start with <em>understanding.</em></h1>
+    <p class="hero-lede">Farm documents can be hard to read. Soil Script turns labels, notices, and scheme information into clear steps you can read or hear in your language.</p>
+    <div class="hero-actions"><a class="button button-primary" href="{{ url_for('documents') }}">Explain a document <span>↗</span></a><a class="button button-quiet" href="{{ url_for('assistant') }}"><span class="play-dot">▶</span> Ask by voice or text</a></div>
+    <div class="trust-row"><span class="avatars" aria-hidden="true"><i>क</i><i>ಕ</i><i>த</i></span><span>Made for India's many farming voices</span><span class="trust-sep">·</span><span>Simple by design</span></div>
+  </div>
+  <div class="hero-visual" aria-label="Illustration of a growing plant in a field">
+    <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+    <div class="sun-disc"></div>
+    <svg class="hero-plant" viewBox="0 0 440 470" role="img" aria-label="A young plant growing in healthy soil">
+      <ellipse class="plant-shadow" cx="221" cy="426" rx="152" ry="21"/>
+      <path class="soil-line" d="M67 350c60-29 120-31 171-22 57 10 99 6 141-14v108H67Z"/>
+      <path class="soil-lower" d="M67 390c86 16 204-25 312-5v38H67Z"/>
+      <path class="root" d="M218 346c3 39 1 48-17 68m19-58c12 16 16 30 11 49m-11-38-29 13m30 0 34 11"/>
+      <path class="stem" d="M219 347c2-61 1-110 5-173"/>
+      <path class="leaf leaf-left" d="M221 253c-74 2-108-40-104-92 58 2 99 26 104 92Z"/>
+      <path class="leaf-vein" d="M215 250c-29-33-52-51-88-76"/>
+      <path class="leaf leaf-right" d="M224 211c11-63 52-92 105-82-12 56-48 85-105 82Z"/>
+      <path class="leaf-vein" d="M230 205c28-33 52-52 85-66"/>
+      <path class="leaf leaf-top" d="M225 184c-44-38-42-83-8-116 42 34 52 73 8 116Z"/>
+      <path class="leaf-vein" d="M224 177c-1-34-1-60-5-92"/>
+      <circle class="spark spark-a" cx="115" cy="130" r="5"/><circle class="spark spark-b" cx="342" cy="192" r="4"/><circle class="spark spark-c" cx="135" cy="297" r="3"/>
+    </svg>
+    <div class="float-note note-language"><span class="note-symbol">Aa</span><span><strong>Your language</strong><small>Read it. Hear it.</small></span><span class="note-check">✓</span></div>
+    <div class="float-note note-simple"><span class="note-sun">✳</span><span><strong>Clear next steps</strong><small>3–4 simple lines</small></span></div>
+    <span class="visual-caption">Small steps. Stronger seasons.</span>
+  </div>
+</section>
+
+<section class="stats-strip" aria-label="Soil Script highlights">
+  <div><strong>11</strong><span>languages available in the reading and voice experience</span></div>
+  <div><strong>3–4</strong><span>short lines to make a document easier to act on</span></div>
+  <div><strong>Voice</strong><span>listen to important information read aloud</span></div>
+  <div class="stats-note"><span class="mini-leaf">✳</span><span>Built around one idea:<br><strong>clear information belongs to everyone.</strong></span></div>
+</section>
+
+<section class="section section-tools">
+  <div class="section-heading"><div><div class="eyebrow">Your farm, your way</div><h2>Useful help for<br><em>the work ahead.</em></h2></div><p>Start with the question in front of you. Soil Script brings the right information into one calm, easy-to-use place.</p></div>
+  <div class="feature-grid">
+    <a class="feature-card feature-document" href="{{ url_for('documents') }}">
+      <div class="feature-card-top"><span class="feature-icon icon-paper">▤</span><span class="card-arrow">↗</span></div>
+      <div class="card-kicker">01 · READ &amp; UNDERSTAND</div><h3>Make sense of<br>farm documents.</h3><p>Upload a label, bank notice, or scheme letter. Get the important steps in simple language.</p><span class="card-link">Open document helper <b>→</b></span>
+      <div class="doc-art" aria-hidden="true"><div class="doc-sheet"><i></i><i></i><i></i><i></i><span>03 key points</span></div><div class="doc-leaf">✳</div></div>
+    </a>
+    <a class="feature-card feature-voice" href="{{ url_for('assistant') }}">
+      <div class="feature-card-top"><span class="feature-icon icon-voice">◖</span><span class="card-arrow">↗</span></div>
+      <div class="card-kicker">02 · ASK &amp; LISTEN</div><h3>Talk it through<br>in your language.</h3><p>Ask a question by typing or voice. Hear answers read aloud, at your pace.</p><span class="card-link">Meet your farm assistant <b>→</b></span>
+      <div class="wave-art" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </a>
+    <a class="feature-card feature-plan" href="{{ url_for('crop_advisor') }}">
+      <div class="feature-card-top"><span class="feature-icon icon-plan">⌁</span><span class="card-arrow">↗</span></div>
+      <div class="card-kicker">03 · PLAN THE SEASON</div><h3>Explore crops<br>that fit your field.</h3><p>Build a starting shortlist using soil type, season, and your own priorities.</p><span class="card-link">Open the crop planner <b>→</b></span>
+      <div class="field-art" aria-hidden="true"><div class="field-sun"></div><div class="field-hill hill-a"></div><div class="field-hill hill-b"></div><div class="field-row row-a"></div><div class="field-row row-b"></div><div class="field-row row-c"></div></div>
+    </a>
+  </div>
+</section>
+
+<section class="quote-band"><span class="quote-mark">“</span><blockquote>When information is clear, you can give your attention to what matters most: <em>your farm.</em></blockquote><span class="quote-flower">✳</span></section>
+
+<section class="section explore-section">
+  <div class="section-heading compact-heading"><div><div class="eyebrow">More in your corner</div><h2>Practical guides<br><em>for everyday farming.</em></h2></div><a class="text-link" href="{{ url_for('guide') }}">Explore all guides <b>→</b></a></div>
+  <div class="guide-links">
+    <a href="{{ url_for('guide') }}"><span class="guide-link-icon">↗</span><span><strong>A roadmap for your farm</strong><small>Plan from soil check to harvest.</small></span><b>→</b></a>
+    <a href="{{ url_for('disease') }}"><span class="guide-link-icon health-icon">✳</span><span><strong>Crop health, step by step</strong><small>Observe symptoms and know what to do next.</small></span><b>→</b></a>
+    <a href="{{ url_for('inputs') }}"><span class="guide-link-icon safety-icon">✓</span><span><strong>Safer farm inputs</strong><small>Read the label and protect yourself.</small></span><b>→</b></a>
+    <a href="{{ url_for('machinery') }}"><span class="guide-link-icon tool-icon">⌁</span><span><strong>Tools for the task</strong><small>Compare common equipment types.</small></span><b>→</b></a>
+  </div>
+</section>
+
+<section class="closing-cta"><div class="cta-orb">✳</div><div><div class="eyebrow eyebrow-light">A clearer next step is close</div><h2>What would you like<br>to understand today?</h2></div><a class="button button-light" href="{{ url_for('documents') }}">Start with a document <span>↗</span></a></section>
+{% endblock %}

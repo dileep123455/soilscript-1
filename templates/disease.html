@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Crop health guide — Soil Script{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-soft page-hero-health">
+  <div class="page-hero-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> Crop health, step by step</div><h1>Notice a change?<br><em>Start by observing.</em></h1><p>Use this guide to organize what you see and prepare for a conversation with a local crop expert.</p></div>
+  <div class="health-art" aria-hidden="true"><div class="health-ring ring-one"></div><div class="health-ring ring-two"></div><div class="health-leaf">✳</div><div class="health-lens"></div><span>observe</span></div>
+</section>
+<section class="section health-section">
+  <div class="section-heading compact-heading"><div><div class="eyebrow">Careful observation first</div><h2>What are you<br><em>noticing?</em></h2></div><p>Many issues look alike. A symptom alone cannot confirm a pest or disease. Note the details and get a local diagnosis before treating.</p></div>
+  <div class="health-layout">
+    <form class="panel health-form" id="health-form">
+      <label class="field-group"><span class="field-label">What kind of change are you seeing?</span><select id="symptom-type"><option value="spots">Spots or patches on leaves</option><option value="yellow">Leaves turning yellow</option><option value="wilting">Plant wilting or drooping</option><option value="holes">Holes or chewed edges</option><option value="stunted">Slow or uneven growth</option><option value="fruit">Damage on fruit, grain, or stem</option></select></label>
+      <label class="field-group"><span class="field-label">Where do you see it?</span><select id="symptom-spread"><option value="few">A few plants</option><option value="patch">A patch of the field</option><option value="many">Many parts of the field</option><option value="unsure">I’m not sure yet</option></select></label>
+      <label class="field-group"><span class="field-label">When did you first notice it?</span><select id="symptom-timing"><option value="today">Today or yesterday</option><option value="week">Within the last week</option><option value="longer">More than a week ago</option><option value="unsure">I’m not sure</option></select></label>
+      <button class="button button-primary button-wide" type="submit">Make an observation checklist <span>↗</span></button>
+      <div class="safety-note"><span>!</span><p>Don’t apply a pesticide based only on this checklist. Correct identification matters for people, crops, beneficial insects, and water.</p></div>
+    </form>
+    <section class="observation-result" id="health-result" aria-live="polite">
+      <span class="step-label"><b>FIELD NOTE</b> A GOOD NEXT STEP</span><div class="observation-card" id="observation-content"><div class="observation-icon">⌕</div><h3>Make your next<br>field visit count.</h3><p>Choose what you see to get a short list of details to observe and share with a local expert.</p><ul><li>Check more than one plant.</li><li>Take a clear photo of the whole plant and the affected part.</li><li>Note recent rain, irrigation, and any product used.</li></ul></div>
+      <a class="expert-link" href="{{ url_for('assistant') }}"><span>✳</span><span><strong>Need help describing it?</strong><small>Ask the Soil Script assistant to help organize your notes.</small></span><b>→</b></a>
+    </section>
+  </div>
+</section>
+{% endblock %}

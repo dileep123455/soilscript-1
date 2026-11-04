@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Document helper — Soil Script{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-green">
+  <div class="page-hero-copy"><div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Document explainer</div><h1>A clearer read<br>of the <em>fine print.</em></h1><p>Turn farm labels, bank notices, and scheme letters into a short explanation in the language you choose.</p></div>
+  <div class="page-hero-aside"><div class="aside-icon">▤</div><div><strong>Read it. Understand it. Keep the original close.</strong><p>Soil Script can miss small print. Always check critical names, numbers, and dates against the source.</p></div></div>
+</section>
+<section class="section document-workspace">
+  <div class="workspace-heading"><div><span class="step-label"><b>01</b> START HERE</span><h2>Add your document</h2></div><span class="secure-pill"><span>●</span> Your file is processed for this request</span></div>
+  <div class="document-grid">
+    <form class="panel upload-panel" id="document-form">
+      <div class="panel-head"><div><span class="panel-index">A</span><div><h3>Give us something to read</h3><p>Upload a page or paste in the text.</p></div></div><span class="optional-label">One option is enough</span></div>
+      <label class="drop-zone" for="document-file" id="drop-zone">
+        <input type="file" id="document-file" name="file" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp">
+        <span class="upload-symbol">↑</span><strong>Choose a file, or drop it here</strong><small>PDF or a clear photo · up to 12 MB</small><span class="file-name" id="file-name">No file chosen yet</span>
+      </label>
+      <div class="or-divider"><span>or paste text</span></div>
+      <label class="field-label" for="source-text">Text from a label or letter</label><textarea class="text-area source-area" id="source-text" name="text" rows="6" maxlength="12000" placeholder="Paste the words here. You can include English or an Indian language…"></textarea>
+      <div class="field-row">
+        <label class="field-group"><span class="field-label">Document language</span><select name="source_language" id="source-language"><option value="en-IN">English</option><option value="hi-IN">Hindi</option><option value="kn-IN">Kannada</option><option value="ta-IN">Tamil</option><option value="te-IN">Telugu</option><option value="ml-IN">Malayalam</option><option value="mr-IN">Marathi</option><option value="bn-IN">Bengali</option><option value="gu-IN">Gujarati</option><option value="pa-IN">Punjabi</option><option value="od-IN">Odia</option></select></label>
+        <label class="field-group"><span class="field-label">Explain it in</span><select name="target_language" id="target-language"><option value="kn-IN" selected>ಕನ್ನಡ · Kannada</option><option value="hi-IN">हिन्दी · Hindi</option><option value="ta-IN">தமிழ் · Tamil</option><option value="te-IN">తెలుగు · Telugu</option><option value="ml-IN">മലയാളം · Malayalam</option><option value="mr-IN">मराठी · Marathi</option><option value="bn-IN">বাংলা · Bengali</option><option value="gu-IN">ગુજરાતી · Gujarati</option><option value="pa-IN">ਪੰਜਾਬੀ · Punjabi</option><option value="od-IN">ଓଡ଼ିଆ · Odia</option><option value="en-IN">English</option></select></label>
+      </div>
+      <button class="button button-primary button-wide" type="submit" id="document-submit"><span class="button-label">Make it easier to understand</span><span>↗</span></button>
+      <p class="form-note">AI can make mistakes. Use the original label for exact instructions and measurements.</p>
+    </form>
+    <section class="panel result-panel" aria-labelledby="result-title">
+      <div class="panel-head"><div><span class="panel-index panel-index-gold">B</span><div><h3 id="result-title">Your clear summary</h3><p>Three or four practical lines, when ready.</p></div></div><span class="result-language" id="result-language">ಕನ್ನಡ · Kannada</span></div>
+      <div class="result-empty" id="result-empty"><div class="empty-illustration"><div class="empty-sun"></div><div class="empty-page"><i></i><i></i><i></i><b>?</b></div><span>✳</span></div><h4>A little clarity is on its way.</h4><p>Add a document and choose <strong>Make it easier to understand.</strong></p></div>
+      <div class="result-content hidden" id="result-content">
+        <div class="summary-badge"><span>✳</span> IN PLAIN LANGUAGE</div><div class="summary-text" id="summary-text" lang="kn"></div>
+        <div class="result-actions"><button class="button button-dark" type="button" id="read-summary"><span>▶</span> Listen to summary</button><button class="button button-outline" type="button" id="copy-summary">Copy text</button></div>
+        <details class="original-details"><summary>See text read from the document</summary><div id="original-text" class="original-text"></div></details>
+        <div class="notice-box"><span>i</span><p>Check all doses, dates, amounts, and warnings against the original. Ask a local agriculture officer if anything is unclear.</p></div>
+      </div>
+      <div class="loading-state hidden" id="document-loading"><span class="spinner"></span><strong>Reading the fine print</strong><p>This can take a few moments. Keep this page open.</p></div>
+      <div class="error-state hidden" id="document-error" role="alert"></div>
+    </section>
+  </div>
+</section>
+<section class="simple-info-band"><div><span class="info-icon">✳</span><p><strong>From small print to simple steps.</strong> Soil Script uses Sarvam AI to read and explain text. It is a helpful starting point, not an official interpretation.</p></div><a href="{{ url_for('about') }}">How this works <b>→</b></a></section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/document.js') }}" defer></script>{% endblock %}

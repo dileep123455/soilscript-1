@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153c2b">
+  <meta name="description" content="Soil Script helps farmers understand farm documents, practical crop guidance, and safety information in regional Indian languages.">
+  <title>{% block title %}Soil Script — clear information for every farm{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="{{ url_for('index') }}" aria-label="Soil Script home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M18 29V16M18 21c-7 0-11-4-11-11 7 0 11 4 11 11Zm0-5c0-7 4-11 11-11 0 7-4 11-11 11Z"/><path d="M7 30h22"/></svg></span>
+          <span class="brand-copy"><strong>soil<span>script</span></strong><small>knowledge for the field</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+          <a class="{% if page == 'documents' %}active{% endif %}" href="{{ url_for('documents') }}">Document help</a>
+          <a class="{% if page == 'assistant' %}active{% endif %}" href="{{ url_for('assistant') }}">Voice assistant</a>
+          <a class="{% if page == 'crop_advisor' %}active{% endif %}" href="{{ url_for('crop_advisor') }}">Crop planner</a>
+          <div class="nav-more-wrap">
+            <button class="nav-more" type="button" aria-expanded="false">Field guides <span aria-hidden="true">⌄</span></button>
+            <div class="nav-dropdown">
+              <a href="{{ url_for('guide') }}">Farm roadmap</a>
+              <a href="{{ url_for('disease') }}">Crop health</a>
+              <a href="{{ url_for('inputs') }}">Input safety</a>
+              <a href="{{ url_for('machinery') }}">Tools &amp; machinery</a>
+            </div>
+          </div>
+          <a href="{{ url_for('about') }}">About</a>
+          <a class="nav-cta" href="{{ url_for('documents') }}">Explain a document <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">{% block content %}{% endblock %}</main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <a class="brand footer-brand" href="{{ url_for('index') }}">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M18 29V16M18 21c-7 0-11-4-11-11 7 0 11 4 11 11Zm0-5c0-7 4-11 11-11 0 7-4 11-11 11Z"/><path d="M7 30h22"/></svg></span>
+          <span class="brand-copy"><strong>soil<span>script</span></strong><small>knowledge for the field</small></span>
+        </a>
+        <p>Making farm information easier to read, hear, and act on.</p>
+        <div class="footer-links"><a href="{{ url_for('about') }}">About Soil Script</a><a href="{{ url_for('inputs') }}">Safety guides</a><a href="{{ url_for('assistant') }}">Ask a question</a></div>
+      </div>
+      <div class="footer-bottom"><span>Built for the Build with Sarvam hackathon · REVA University · 13–14 Nov 2026</span><span>Use official labels and local expert advice for important farm decisions.</span></div>
+    </footer>
+  </div>
+  <div class="toast" id="site-toast" role="status" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='js/site.js') }}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
